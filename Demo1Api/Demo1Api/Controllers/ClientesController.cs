@@ -11,6 +11,10 @@ using Demo1Api.Models;
 using Demo1Api.Interfaces;
 using System.Transactions;
 
+using Microsoft.EntityFrameworkCore;
+
+using Demo1Api.Entidades;
+
 namespace Demo1Api.Controllers
 {
     [Route("api/[controller]")]
@@ -63,6 +67,7 @@ namespace Demo1Api.Controllers
         {
             return Ok(_IData.DatosRegistradosEmpresas);
         }
+
 
         // POST api/<ClientesController>
         [HttpPost]

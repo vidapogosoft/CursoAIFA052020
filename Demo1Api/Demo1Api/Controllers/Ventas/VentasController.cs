@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore;
+using Demo1Api.Models;
+using Demo1Api.Entidades;
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Demo1Api.Controllers.Ventas
@@ -12,11 +16,20 @@ namespace Demo1Api.Controllers.Ventas
     [ApiController]
     public class VentasController : ControllerBase
     {
+
+        private readonly DBRegistradosContext _context;
+
+        public VentasController(DBRegistradosContext context)
+        {
+            _context = context;
+        }
+
         // GET: api/<VentasController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<DTORegistrados>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await _context.DTORegister.FromSqlRaw("ConsRegistrados")
+                .ToListAsync();
         }
 
         // GET api/<VentasController>/5

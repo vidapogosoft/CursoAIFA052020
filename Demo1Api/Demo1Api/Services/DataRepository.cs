@@ -7,6 +7,8 @@ using Demo1Api.Models;
 using Demo1Api.Entidades;
 using Demo1Api.Interfaces;
 
+using Microsoft.EntityFrameworkCore;
+
 namespace Demo1Api.Services
 {
     public class DataRepository : IData
@@ -63,10 +65,10 @@ namespace Demo1Api.Services
                         select new DTORegistrados()
                         {
                             IdRegistrado = a.IdRegistrado,
-                            Identificacion = a.Identificacion,
-                            NombresCompletos = a.NombresCompletos,
-                            NombresEmpresa = c.NombrEmpresa,
-                            EstadoRelacionEmpresa = b.Estado
+                            Identificacion = a.Identificacion
+                            //NombresCompletos = a.NombresCompletos,
+                            //NombresEmpresa = c.NombrEmpresa,
+                            //EstadoRelacionEmpresa = b.Estado
                         }
 
                     ).ToList();
@@ -146,6 +148,19 @@ namespace Demo1Api.Services
 
             }
         }
+
+        //Stored procedures
+
+        //public async List<DTORegistrados> DatosRegistradosSP()
+        //{
+        //    using (var context = new DBRegistradosContext())
+        //    {
+        //        return await context.Registrados
+        //            .FromSqlRaw<DTORegistrados>("");
+        //    }
+
+        //}
+
 
     }
 }

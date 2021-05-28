@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using Demo1Api.Services;
 using Demo1Api.Interfaces;
 
+using Microsoft.EntityFrameworkCore;
+using Demo1Api.Models;
+
 namespace Demo1Api
 {
     public class Startup
@@ -27,6 +30,12 @@ namespace Demo1Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DBRegistradosContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("database"));
+            });
+
+
             services.AddControllers();
 
             services.AddSingleton<IData, DataRepository>();

@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 using Microsoft.Extensions.Configuration;
 
+using Demo1Api.Entidades;
+
 #nullable disable
 
 namespace Demo1Api.Models
@@ -19,6 +21,8 @@ namespace Demo1Api.Models
             : base(options)
         {
         }
+
+        public virtual DbSet<DTORegistrados> DTORegister { get; set; }
 
         public virtual DbSet<Empresa> Empresas { get; set; }
         public virtual DbSet<EmpresaRegistrado> EmpresaRegistrados { get; set; }
