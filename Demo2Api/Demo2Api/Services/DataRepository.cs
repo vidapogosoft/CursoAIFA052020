@@ -52,14 +52,29 @@ namespace Demo2Api.Services
         {
             using (var context = new DataContext())
             {
+               
                 return context.DTORegister.FromSqlRaw("InsRegistrados {0},{1},{2}"
                     , NewItem.Identificacion
                     , NewItem.Nombres
                     , NewItem.Apellidos)
                     .ToList();
+
             }
         }
 
-       
+        public List<DTORegistrados> Insert2(Registrado NewItem)
+        {
+            using (var context = new DataContext())
+            {
+
+                return context.DTORegister.FromSqlRaw("InsRegistrados {0},{1},{2}"
+                    , NewItem.Identificacion
+                    , NewItem.Nombres
+                    , NewItem.Apellidos)
+                    .ToList();
+
+            }
+        }
+
     }
 }

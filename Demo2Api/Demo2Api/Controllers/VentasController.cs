@@ -56,9 +56,11 @@ namespace Demo2Api.Controllers
         [Route("Registrados2")]
         public IActionResult Post2([FromBody] Registrado NewItem)
         {
-            _IData.InsertRegistrado1(NewItem);
+            return Ok(
 
-            return Ok(NewItem);
+           _IData.InsertRegistrado1(NewItem)
+
+           );
 
         }
 
