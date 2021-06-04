@@ -1,0 +1,30 @@
+<!-- <p>form-register works!</p>
+ -->
+
+<div>
+    <h1>Administracion de Registrados</h1>
+
+    <table>
+        <tr>
+            <td>Nombres Registrado</td>
+            </tr>
+            <tr *ngFor="let data of registrados">
+                <td>
+                    {{data.nombresCompletos}}
+                </td>
+            </tr>
+    </table>
+
+    <div>
+
+        
+
+        <br>
+
+        <p><button class="btn btn-warning" (click)="Registrar()" >Registrar</button>
+            <button class="btn btn-warning">Modificar</button>
+        </p>
+
+    </div>
+
+</div>
