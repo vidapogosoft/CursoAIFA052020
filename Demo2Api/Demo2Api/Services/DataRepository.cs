@@ -39,11 +39,21 @@ namespace Demo2Api.Services
             }
         }
 
+       
         public List<DTORegistrados> CargaDatosByIdentificacion(string identificacion)
         {
             using (var context = new DataContext())
             {
                 return context.DTORegister.FromSqlRaw("ConsRegistradoByIdentificacion {0}", identificacion)
+                .ToList();
+            }
+        }
+
+        public List<DTORegistrados> CargaDatosByIdentificacionId(string Id, string identificacion)
+        {
+            using (var context = new DataContext())
+            {
+                return context.DTORegister.FromSqlRaw("ConsRegistradoByIdentificacion {0},{1}", Id, identificacion)
                 .ToList();
             }
         }
